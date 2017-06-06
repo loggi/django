@@ -1,7 +1,7 @@
 import os
 import sys
 
-from distutils.core import setup
+from setuptools import setup
 from distutils.sysconfig import get_python_lib
 
 # Warn if we are installing over top of an existing installation. This can
