@@ -81,8 +81,8 @@ version = __import__('django').get_version()
 
 
 setup(
-    name='Django',
-    version=version,
+    name='django',
+    version='1.6.1loggi',
     url='http://www.djangoproject.com/',
     author='Django Software Foundation',
     author_email='foundation@djangoproject.com',
