@@ -15,7 +15,7 @@ class PreparedGeometry(GEOSBase):
         self.ptr = capi.geos_prepare(geom.ptr)
 
     def __del__(self):
-        if self._ptr: capi.prepared_destroy(self._ptr)
+        if self._ptr and capi: capi.prepared_destroy(self._ptr)
 
     def contains(self, other):
         return capi.prepared_contains(self.ptr, other.ptr)

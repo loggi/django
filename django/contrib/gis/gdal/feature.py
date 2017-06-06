@@ -33,7 +33,7 @@ class Feature(GDALBase):
 
     def __del__(self):
         "Releases a reference to this object."
-        if self._ptr: capi.destroy_feature(self._ptr)
+        if self._ptr and capi: capi.destroy_feature(self._ptr)
 
     def __getitem__(self, index):
         """
