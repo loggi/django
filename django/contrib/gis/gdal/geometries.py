@@ -130,7 +130,7 @@ class OGRGeometry(GDALBase):
 
     def __del__(self):
         "Deletes this Geometry."
-        if self._ptr:
+        if self._ptr and capi:
             capi.destroy_geom(self._ptr)
 
     # Pickle routines

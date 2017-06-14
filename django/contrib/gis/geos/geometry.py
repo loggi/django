@@ -116,7 +116,7 @@ class GEOSGeometry(GEOSBase, ListMixin):
         Destroys this Geometry; in other words, frees the memory used by the
         GEOS C++ object.
         """
-        if self._ptr:
+        if self._ptr and capi:
             capi.destroy_geom(self._ptr)
 
     def __copy__(self):
@@ -516,7 +516,7 @@ class GEOSGeometry(GEOSBase, ListMixin):
         if clone:
             # User wants a cloned transformed geometry returned.
             return GEOSGeometry(ptr, srid=g.srid)
-        if ptr:
+        if ptr and capi:
             # Reassigning pointer, and performing post-initialization setup
             # again due to the reassignment.
             capi.destroy_geom(self.ptr)
